@@ -1,9 +1,11 @@
 package cn.nice2cu.work;
 
+import java.awt.datatransfer.MimeTypeParseException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.activation.MimetypesFileTypeMap;
 
 /**
  * TODO
@@ -13,15 +15,18 @@ import java.io.InputStream;
  */
 public class GetFileHead {
 
-    public static final String PATH = "C:\\Program Files\\Tabby\\resources\\app.asar.unpacked\\node_modules\\@tabby-gang\\node-pty\\deps\\winpty\\vcbuild.bat";
+    public static final String PATH = "C:\\Users\\zhaosq\\Desktop\\GT-AX11000_386_46065_koolshare_cferom_ubi_koolcenter_20220413.w";
 
     public static void main(String[] args) {
-        try {
+        File file = new File(PATH);
+        MimetypesFileTypeMap map = new MimetypesFileTypeMap();
+        System.out.println(map.getContentType(file));
+        /*try {
             String result = getFileHead(new File(PATH));
             System.out.println(result.substring(0, 24));
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public static String getFileHead(File file) throws IOException{
